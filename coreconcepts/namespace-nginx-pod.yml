@@ -9,7 +9,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
-  namespace: mynamspace
+  namespace: mynamespace
   labels:
     name: nginx
 spec:
