@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-world-config-map
+data:
+  hello_world_value: "helloWorldConfigMap"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world
+  labels:
+    name: hello-world
+spec:
+  restartPolicy: Never
+  containers:
+    - name: hello-world
+      image: busybox
+      env:
+        - name: "CONFIG"
+          value: "hello-world"
+        - name: "readFromConfigMap"
+          valueFrom:
+            configMapKeyRef:
+              name: hello-world-config-map
+              key: hello_world_value
+      command:
+        - env
