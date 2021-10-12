@@ -2,7 +2,7 @@
 
 image=$(kubectl get pod nginx -o jsonpath='{.metadata.name}' -n=mynamespace)
          
-if [ $image == "nginx" ]:
+if [ $image == "nginx" ];
 then
    echo "good"
 else
